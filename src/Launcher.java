@@ -11,15 +11,24 @@ public class Launcher {
             try {
                 System.out.println("Entrez votre commande : ");
                 String cmd = scanner.nextLine();
-                if ("quit".equals(cmd)){
+                if ("quit".equals(cmd)) {
                     running = false;
-                }
-                else{
+                } else if ("fibo".equals(cmd)) {
+                    System.out.println("Entrez votre nombre: ");
+                    String n = scanner.nextLine();
+                    System.out.println(fibo(Integer.parseInt(n)));
+                } else {
                     System.out.println("Unknown command");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Unknown command");
             }
-        }while(running);
+        } while (running);
+
+
+    }
+    private static int fibo(int n) {
+        if (n <= 1) return n;
+        else return fibo(n-1) + fibo(n-2);
     }
 }
